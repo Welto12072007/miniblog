@@ -8,4 +8,8 @@ app.service('PostService', function($http) {
   this.getPostById = function(id) {
     return $http.get(`${API_URL}/posts/${id}`);
   };
+
+  this.searchPosts = function(query) {
+    return $http.get(`${API_URL}/posts?q=${query}`);
+  };
 });

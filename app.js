@@ -14,3 +14,10 @@ app.config(function($routeProvider) {
       redirectTo: '/'
     });
 });
+
+// Filtro para confiar no HTML do conteúdo
+app.filter('trustHtml', ['$sce', function($sce) {
+  return function(text) {
+    return $sce.trustAsHtml(text);
+  };
+}]);
