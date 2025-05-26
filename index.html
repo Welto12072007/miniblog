@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-br" ng-app="blogApp">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,7 +7,7 @@
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" />
   <link rel="stylesheet" href="styles.css" />
 </head>
-<body class="d-flex flex-column min-vh-100">
+<body class="d-flex flex-column min-vh-100" ng-controller="BlogController">
   <header class="bg-light border-bottom py-3">
     <div class="container d-flex flex-wrap justify-content-between align-items-center">
       <div class="d-flex align-items-center mb-2 mb-lg-0">
@@ -31,6 +31,16 @@
 
   <main class="container my-5 flex-grow-1">
     <div id="posts-container" class="row g-4 justify-content-center">
+      <div class="col-md-4" ng-repeat="post in postagens">
+        <div class="card h-100 shadow-sm">
+          <img ng-src="{{ post.imagem }}" class="card-img-top" alt="{{ post.titulo }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ post.titulo }}</h5>
+            <p class="text-muted">{{ post.data }}</p>
+            <a class="btn btn-primary btn-sm" href="post.html?id={{ post.id }}">Ler mais</a>
+          </div>
+        </div>
+      </div>
     </div>
   </main>
 
@@ -38,6 +48,9 @@
     <p class="mb-0">&copy; 2025 AVC Alerta | Cuide da sua saúde - Desafio Frontend.</p>
   </footer>
 
+  <!-- AngularJS -->
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
