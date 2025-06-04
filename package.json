@@ -1,0 +1,23 @@
+{
+  "name": "miniblog",
+  "version": "1.0.0",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Welto12072007/miniblog.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Welto12072007/miniblog/issues"
+  },
+  "homepage": "https://github.com/Welto12072007/miniblog#readme",
+  "description": "",
+  "dependencies": {
+    "express": "^5.1.0"
+  }
+}

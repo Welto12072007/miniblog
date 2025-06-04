@@ -8,7 +8,7 @@ angular.module('blogApp', ['ngSanitize'])
     $scope.mensagemErro = '';
 
     // URL da API
-    const API_URL = 'https://avc-api-rldt.onrender.com';
+    const API_URL = 'https://avc-api-wdw8.onrender.com';
 
     // Função para carregar todas as postagens
     $scope.carregarPostagens = function() {
@@ -65,4 +65,5 @@ angular.module('blogApp', ['ngSanitize'])
 
     // Carregar postagens ao inicializar
     $scope.carregarPostagens();
+
   });
