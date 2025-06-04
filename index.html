@@ -17,8 +17,8 @@
 
       <div class="d-flex align-items-center gap-2 flex-wrap">
         <nav class="d-flex flex-wrap gap-2">
-          <a class="btn btn-outline-primary" href="#">Início</a>
-          <a class="btn btn-outline-primary" href="#">Blog</a>
+          <a class="btn btn-outline-primary" href="#" ng-click="mostrarTodosPosts()">Início</a>
+          <a class="btn btn-outline-primary" href="#" ng-click="mostrarTodosPosts()">Blog</a>
           <a class="btn btn-outline-primary" href="#">Contato</a>
           <a class="btn btn-outline-primary" href="#">Sobre</a>
         </nav>
@@ -30,17 +30,48 @@
   </header>
 
   <main class="container my-5 flex-grow-1">
-    <div id="posts-container" class="row g-4 justify-content-center">
+    <!-- Loading -->
+    <div ng-show="carregando" class="text-center">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">Carregando...</span>
+      </div>
+      <p class="mt-2">Carregando postagens...</p>
+    </div>
+
+    <!-- Lista de Posts -->
+    <div ng-show="!carregando && !postSelecionado" id="posts-container" class="row g-4 justify-content-center">
       <div class="col-md-4" ng-repeat="post in postagens">
         <div class="card h-100 shadow-sm">
           <img ng-src="{{ post.imagem }}" class="card-img-top" alt="{{ post.titulo }}">
           <div class="card-body">
             <h5 class="card-title">{{ post.titulo }}</h5>
             <p class="text-muted">{{ post.data }}</p>
-            <a class="btn btn-primary btn-sm" href="post.html?id={{ post.id }}">Ler mais</a>
+            <a class="btn btn-primary btn-sm" href="#" ng-click="selecionarPost(post.id)">Ler mais</a>
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- Post Individual -->
+    <div ng-show="!carregando && postSelecionado">
+      <div class="mb-3">
+        <a href="#" class="btn btn-outline-primary btn-sm" ng-click="voltarParaLista()">← Voltar</a>
+      </div>
+      <div class="card shadow-sm">
+        <img ng-src="{{ postSelecionado.imagem }}" class="card-img-top" alt="{{ postSelecionado.titulo }}">
+        <div class="card-body">
+          <h2 class="card-title">{{ postSelecionado.titulo }}</h2>
+          <p class="text-muted">{{ postSelecionado.data }}</p>
+          <div class="card-text" ng-bind-html="postSelecionado.conteudo"></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Erro -->
+    <div ng-show="erro" class="alert alert-danger text-center">
+      <h5>Erro ao carregar as postagens</h5>
+      <p>{{ mensagemErro }}</p>
+      <button class="btn btn-primary" ng-click="carregarPostagens()">Tentar novamente</button>
     </div>
   </main>
 
