@@ -12,12 +12,10 @@ h1 span {
   object-fit: cover;
 }
 
-/* Remove estilo padrão de link azul */
 a.btn {
   text-decoration: none;
 }
 
-/* Estilo do botão de navegação */
 .nav .btn, .btn {
   font-weight: 500;
   border-radius: 20px;
@@ -29,7 +27,6 @@ a.btn {
   color: white;
 }
 
-/* Estilização da barra de pesquisa */
 input[type="search"] {
   max-width: 180px;
   padding: 5px 10px;
@@ -37,7 +34,6 @@ input[type="search"] {
   border: 1px solid #0d6efd;
 }
 
-/* Garante que o footer fique no rodapé */
 html, body {
   height: 100%;
 }
