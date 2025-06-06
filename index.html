@@ -30,7 +30,7 @@
   </header>
 
   <main class="container my-5 flex-grow-1">
-    <!-- Loading -->
+   
     <div ng-show="carregando" class="text-center">
       <div class="spinner-border text-primary" role="status">
         <span class="visually-hidden">Carregando...</span>
@@ -38,7 +38,6 @@
       <p class="mt-2">Carregando postagens...</p>
     </div>
 
-    <!-- Lista de Posts -->
     <div ng-show="!carregando && !postSelecionado" id="posts-container" class="row g-4 justify-content-center">
       <div class="col-md-4" ng-repeat="post in postagens">
         <div class="card h-100 shadow-sm">
@@ -52,7 +51,7 @@
       </div>
     </div>
 
-    <!-- Post Individual -->
+  
     <div ng-show="!carregando && postSelecionado">
       <div class="mb-3">
         <a href="#" class="btn btn-outline-primary btn-sm" ng-click="voltarParaLista()">← Voltar</a>
@@ -67,7 +66,7 @@
       </div>
     </div>
 
-    <!-- Erro -->
+  
     <div ng-show="erro" class="alert alert-danger text-center">
       <h5>Erro ao carregar as postagens</h5>
       <p>{{ mensagemErro }}</p>
@@ -79,7 +78,7 @@
     <p class="mb-0">&copy; 2025 AVC Alerta | Cuide da sua saúde - Desafio Frontend.</p>
   </footer>
 
-  <!-- AngularJS -->
+  
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.8.2/angular-sanitize.js"></script>
   <script src="script.js"></script>

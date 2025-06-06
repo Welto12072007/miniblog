@@ -1,16 +1,16 @@
 angular.module('blogApp', ['ngSanitize'])
   .controller('BlogController', function($scope, $http) {
-    // Variáveis de controle
+    
     $scope.postagens = [];
     $scope.postSelecionado = null;
     $scope.carregando = true;
     $scope.erro = false;
     $scope.mensagemErro = '';
 
-    // URL da API
+    
     const API_URL = 'https://avc-api-wdw8.onrender.com';
 
-    // Função para carregar todas as postagens
+    
     $scope.carregarPostagens = function() {
       $scope.carregando = true;
       $scope.erro = false;
@@ -30,7 +30,7 @@ angular.module('blogApp', ['ngSanitize'])
         });
     };
 
-    // Função para selecionar um post específico
+    
     $scope.selecionarPost = function(postId) {
       $scope.carregando = true;
       
@@ -48,13 +48,12 @@ angular.module('blogApp', ['ngSanitize'])
         });
     };
 
-    // Função para voltar à lista de posts
+    
     $scope.voltarParaLista = function() {
       $scope.postSelecionado = null;
       $scope.erro = false;
     };
 
-    // Função para mostrar todos os posts (usada nos botões de navegação)
     $scope.mostrarTodosPosts = function() {
       $scope.postSelecionado = null;
       $scope.erro = false;
@@ -63,7 +62,7 @@ angular.module('blogApp', ['ngSanitize'])
       }
     };
 
-    // Carregar postagens ao inicializar
+
     $scope.carregarPostagens();
 
   });
